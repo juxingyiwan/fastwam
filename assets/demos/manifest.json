@@ -1,5 +1,5 @@
 {
-  "description": "User-supplied FastWAM RTC demonstrations on ReBot / B601. Videos are published without transcoding or editing; posters are extracted frames.",
+  "description": "User-supplied FastWAM RTC demonstrations on ReBot / B601. Original MP4 videos are published without transcoding or editing. Posters are extracted frames. Silent GIF previews show the full clip at the original speed, reduced to 384 x 216 pixels and 8 fps.",
   "published_date": "2026-10-26",
   "rtc": true,
   "videos": [
@@ -15,7 +15,18 @@
       "bytes": 3998442,
       "sha256": "70ac0f10a08d9a424fb2b71e8feed4acb410b2290e9ef2056be0e50312ec5308",
       "poster": "fastwam-cube-rtc.jpg",
-      "poster_time_seconds": 10.2685
+      "poster_time_seconds": 10.2685,
+      "preview": {
+        "file": "fastwam-cube-rtc.gif",
+        "format": "gif",
+        "width": 384,
+        "height": 216,
+        "fps": 8,
+        "playback_speed": 1,
+        "audio": false,
+        "bytes": 3402153,
+        "sha256": "37b80af6380ea42cdbfd98334e6ce185abc5b097aace9d598e42cb74181c4831"
+      }
     },
     {
       "task": "pen",
@@ -29,7 +40,18 @@
       "bytes": 2409506,
       "sha256": "7959154d7b7e65ddbf49bd7bd464e08a16a56ec3d1e6327aece7f70f780087d1",
       "poster": "fastwam-pen-rtc.jpg",
-      "poster_time_seconds": 6.2535
+      "poster_time_seconds": 6.2535,
+      "preview": {
+        "file": "fastwam-pen-rtc.gif",
+        "format": "gif",
+        "width": 384,
+        "height": 216,
+        "fps": 8,
+        "playback_speed": 1,
+        "audio": false,
+        "bytes": 1858853,
+        "sha256": "f5b2902a21c61306a789c580d6e7641b42bf6fa22a61936f4dd5c408a04eb4c8"
+      }
     },
     {
       "task": "drawer",
@@ -43,7 +65,18 @@
       "bytes": 3747279,
       "sha256": "536846a50ac7c512da3362748f65a93e918daf812cea3d546a2034839ffc915b",
       "poster": "fastwam-drawer-rtc.jpg",
-      "poster_time_seconds": 9.592
+      "poster_time_seconds": 9.592,
+      "preview": {
+        "file": "fastwam-drawer-rtc.gif",
+        "format": "gif",
+        "width": 384,
+        "height": 216,
+        "fps": 8,
+        "playback_speed": 1,
+        "audio": false,
+        "bytes": 3264473,
+        "sha256": "08c6b1402605d43e39e3221829e6b57952a341928d4e5b6e3a75de88a8128161"
+      }
     }
   ]
 }

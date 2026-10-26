@@ -8,12 +8,14 @@ This submission tree is based on upstream FastWAM `7faa71108368fbb3b6885649f112a
 
 ## ReBot / B601: FastWAM with RTC
 
-Three real-robot demonstrations with RTC enabled: placing the cube in the bowl, placing the pen in the box, and opening the top drawer to place the cube inside. Click a preview to watch the original video.
+Three real-robot demonstrations with RTC enabled: placing the cube in the bowl, placing the pen in the box, and opening the top drawer to place the cube inside. The silent GIF previews below show the full clips at their original speed. Click a preview to open the full-resolution video player.
+
+**[▶ Watch all three videos with sound and fullscreen controls](https://juxingyiwan.github.io/fastwam-git/)**
 
 | Cube → bowl | Pen → box | Cube → top drawer |
 | --- | --- | --- |
-| [![FastWAM with RTC: placing the cube in the bowl](assets/demos/fastwam-cube-rtc.jpg)](assets/demos/fastwam-cube-rtc.mp4) | [![FastWAM with RTC: placing the pen in the box](assets/demos/fastwam-pen-rtc.jpg)](assets/demos/fastwam-pen-rtc.mp4) | [![FastWAM with RTC: opening the top drawer and placing the cube inside](assets/demos/fastwam-drawer-rtc.jpg)](assets/demos/fastwam-drawer-rtc.mp4) |
-| [Watch · 18.7 s](assets/demos/fastwam-cube-rtc.mp4) | [Watch · 11.4 s](assets/demos/fastwam-pen-rtc.mp4) | [Watch · 17.4 s](assets/demos/fastwam-drawer-rtc.mp4) |
+| [![FastWAM with RTC: placing the cube in the bowl](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam-git/#cube) | [![FastWAM with RTC: placing the pen in the box](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam-git/#pen) | [![FastWAM with RTC: opening the top drawer and placing the cube inside](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam-git/#drawer) |
+| [Watch · 18.7 s](https://juxingyiwan.github.io/fastwam-git/#cube) | [Watch · 11.4 s](https://juxingyiwan.github.io/fastwam-git/#pen) | [Watch · 17.4 s](https://juxingyiwan.github.io/fastwam-git/#drawer) |
 
 [Robot deployment guide](docs/rebot.md) · [Video metadata](assets/demos/manifest.json)
 
