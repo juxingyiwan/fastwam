@@ -1,0 +1,49 @@
+{
+  "description": "User-supplied FastWAM RTC demonstrations on ReBot / B601. Videos are published without transcoding or editing; posters are extracted frames.",
+  "published_date": "2026-10-26",
+  "rtc": true,
+  "videos": [
+    {
+      "task": "cube",
+      "instruction": "Grasp the cube to the bowl",
+      "file": "fastwam-cube-rtc.mp4",
+      "duration_seconds": 18.67,
+      "width": 1280,
+      "height": 720,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "bytes": 3998442,
+      "sha256": "70ac0f10a08d9a424fb2b71e8feed4acb410b2290e9ef2056be0e50312ec5308",
+      "poster": "fastwam-cube-rtc.jpg",
+      "poster_time_seconds": 10.2685
+    },
+    {
+      "task": "pen",
+      "instruction": "Grasp the pen to the box",
+      "file": "fastwam-pen-rtc.mp4",
+      "duration_seconds": 11.37,
+      "width": 1280,
+      "height": 720,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "bytes": 2409506,
+      "sha256": "7959154d7b7e65ddbf49bd7bd464e08a16a56ec3d1e6327aece7f70f780087d1",
+      "poster": "fastwam-pen-rtc.jpg",
+      "poster_time_seconds": 6.2535
+    },
+    {
+      "task": "drawer",
+      "instruction": "Grasp the cube into the closed top drawer",
+      "file": "fastwam-drawer-rtc.mp4",
+      "duration_seconds": 17.44,
+      "width": 1280,
+      "height": 720,
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "bytes": 3747279,
+      "sha256": "536846a50ac7c512da3362748f65a93e918daf812cea3d546a2034839ffc915b",
+      "poster": "fastwam-drawer-rtc.jpg",
+      "poster_time_seconds": 9.592
+    }
+  ]
+}

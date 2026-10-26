@@ -6,6 +6,17 @@ Train and evaluate FastWAM policies, prepare end-effector delta data, and deploy
 
 This submission tree is based on upstream FastWAM `7faa71108368fbb3b6885649f112af607427a2d4` and the audited deployment source. It preserves the deployed model, control, homing and RTC implementations. Machine-specific orchestration and generated artifacts are kept outside the project. Source identities are recorded in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json).
 
+## ReBot / B601: FastWAM with RTC
+
+Three real-robot demonstrations with RTC enabled: placing the cube in the bowl, placing the pen in the box, and opening the top drawer to place the cube inside. Click a preview to watch the original video.
+
+| Cube → bowl | Pen → box | Cube → top drawer |
+| --- | --- | --- |
+| [![FastWAM with RTC: placing the cube in the bowl](assets/demos/fastwam-cube-rtc.jpg)](assets/demos/fastwam-cube-rtc.mp4) | [![FastWAM with RTC: placing the pen in the box](assets/demos/fastwam-pen-rtc.jpg)](assets/demos/fastwam-pen-rtc.mp4) | [![FastWAM with RTC: opening the top drawer and placing the cube inside](assets/demos/fastwam-drawer-rtc.jpg)](assets/demos/fastwam-drawer-rtc.mp4) |
+| [Watch · 18.7 s](assets/demos/fastwam-cube-rtc.mp4) | [Watch · 11.4 s](assets/demos/fastwam-pen-rtc.mp4) | [Watch · 17.4 s](assets/demos/fastwam-drawer-rtc.mp4) |
+
+[Robot deployment guide](docs/rebot.md) · [Video metadata](assets/demos/manifest.json)
+
 ## Choose a workflow
 
 | Goal | Guide | Main entry |

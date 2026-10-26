@@ -6,6 +6,17 @@
 
 提交工程基于上游 `7faa71108368fbb3b6885649f112af607427a2d4` 和已审计的部署源码。模型、控制、回零和 RTC 实现保留；机器专用编排与生成产物放在工程外。来源及源码指纹见 [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json)。
 
+## ReBot / B601：FastWAM RTC 真机演示
+
+以下为开启 RTC 的三项真机演示：将方块放入碗中、将笔放入盒中，以及打开上层抽屉并放入方块。点击预览图即可观看原视频。
+
+| 方块放入碗中 | 笔放入盒中 | 打开抽屉并放入方块 |
+| --- | --- | --- |
+| [![FastWAM RTC：将方块放入碗中](assets/demos/fastwam-cube-rtc.jpg)](assets/demos/fastwam-cube-rtc.mp4) | [![FastWAM RTC：将笔放入盒中](assets/demos/fastwam-pen-rtc.jpg)](assets/demos/fastwam-pen-rtc.mp4) | [![FastWAM RTC：打开上层抽屉并放入方块](assets/demos/fastwam-drawer-rtc.jpg)](assets/demos/fastwam-drawer-rtc.mp4) |
+| [播放 · 18.7 秒](assets/demos/fastwam-cube-rtc.mp4) | [播放 · 11.4 秒](assets/demos/fastwam-pen-rtc.mp4) | [播放 · 17.4 秒](assets/demos/fastwam-drawer-rtc.mp4) |
+
+[真机部署指南](docs/rebot.zh-CN.md) · [视频信息](assets/demos/manifest.json)
+
 ## 按场景开始
 
 | 目标 | 文档 | 主入口 |
