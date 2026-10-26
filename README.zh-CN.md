@@ -1,6 +1,6 @@
 # FastWAM：LIBERO、RoboTwin 与 ReBot
 
-[English](README.md) · [▶ 视频展厅](https://juxingyiwan.github.io/fastwam/) · [上游 FastWAM](https://github.com/yuantianyuan01/FastWAM) · [贡献指南](CONTRIBUTING.zh-CN.md) · [全部 CI 检查](https://github.com/juxingyiwan/fastwam/actions)
+[English](README.md) · [<img src="assets/play-circle.svg" width="16" height="16" alt=""> 视频展厅](https://juxingyiwan.github.io/fastwam/) · [上游 FastWAM](https://github.com/yuantianyuan01/FastWAM) · [贡献指南](CONTRIBUTING.zh-CN.md) · [全部 CI 检查](https://github.com/juxingyiwan/fastwam/actions)
 
 [![Source and CPU regressions](https://github.com/juxingyiwan/fastwam/actions/workflows/cpu.yml/badge.svg?branch=main)](https://github.com/juxingyiwan/fastwam/actions/workflows/cpu.yml)
 
@@ -16,12 +16,12 @@
 
 以下为 **开启 RTC** 的三项真机任务演示：方块入碗、笔入盒，以及打开上层抽屉并放入方块。下方无声动图按原速展示每段完整演示，表头保留完整任务指令。点击动图可播放原始 720p 视频，支持声音和全屏控制。
 
-[▶ 视频展厅](https://juxingyiwan.github.io/fastwam/)
+[<img src="assets/play-circle.svg" width="16" height="16" alt=""> 视频展厅](https://juxingyiwan.github.io/fastwam/)
 
 | `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |
 | [![FastWAM RTC：Grasp the cube to the bowl，将方块放入碗中](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM RTC：Grasp the pen to the box，将笔放入盒中](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM RTC：Grasp the cube into the closed top drawer，打开上层抽屉并放入方块](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
-| [▶ 播放视频 · 18.7 秒](https://juxingyiwan.github.io/fastwam/#cube) | [▶ 播放视频 · 11.4 秒](https://juxingyiwan.github.io/fastwam/#pen) | [▶ 播放视频 · 17.4 秒](https://juxingyiwan.github.io/fastwam/#drawer) |
+| [<img src="assets/play-circle.svg" width="16" height="16" alt=""> 播放视频 · 18.7 秒](https://juxingyiwan.github.io/fastwam/#cube) | [<img src="assets/play-circle.svg" width="16" height="16" alt=""> 播放视频 · 11.4 秒](https://juxingyiwan.github.io/fastwam/#pen) | [<img src="assets/play-circle.svg" width="16" height="16" alt=""> 播放视频 · 17.4 秒](https://juxingyiwan.github.io/fastwam/#drawer) |
 
 [真机部署指南](docs/rebot.zh-CN.md) · [视频信息](assets/demos/manifest.json)
 

@@ -5,3 +5,4 @@ recursive-include experiments *.py *.sh *.md *.json *.yml *.txt LICENSE
 recursive-include docs *.md
 recursive-include environments *.txt *.md
 recursive-include scripts *.py *.sh *.yaml *.json
+include assets/play-circle.svg
