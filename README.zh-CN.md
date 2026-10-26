@@ -6,16 +6,17 @@
 
 提交工程基于上游 `7faa71108368fbb3b6885649f112af607427a2d4` 和已审计的部署源码。模型、控制、回零和 RTC 实现保留；机器专用编排与生成产物放在工程外。来源及源码指纹见 [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json)。
 
+<a id="rebot-demos"></a>
+
 ## ReBot / B601：FastWAM RTC 真机演示
 
-以下为开启 RTC 的三项真机演示：将方块放入碗中、将笔放入盒中，以及打开上层抽屉并放入方块。下方 GIF 为完整动作的静音预览，保持原始播放速度；点击动图可进入原分辨率视频播放器。
+以下为 **开启 RTC** 的三项真机任务演示：方块入碗、笔入盒，以及打开上层抽屉并放入方块。下方无声动图按原速展示每段完整演示，表头保留完整任务指令。点击动图可播放原始 720p 视频，支持声音和全屏控制。
 
-**[▶ 观看全部三个视频（支持声音和全屏）](https://juxingyiwan.github.io/fastwam/)**
+**[观看全部真机演示](https://juxingyiwan.github.io/fastwam/)**
 
-| 方块放入碗中 | 笔放入盒中 | 打开抽屉并放入方块 |
+| `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |
-| [![FastWAM RTC：将方块放入碗中](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM RTC：将笔放入盒中](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM RTC：打开上层抽屉并放入方块](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
-| [播放 · 18.7 秒](https://juxingyiwan.github.io/fastwam/#cube) | [播放 · 11.4 秒](https://juxingyiwan.github.io/fastwam/#pen) | [播放 · 17.4 秒](https://juxingyiwan.github.io/fastwam/#drawer) |
+| [![FastWAM RTC：Grasp the cube to the bowl，将方块放入碗中](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM RTC：Grasp the pen to the box，将笔放入盒中](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM RTC：Grasp the cube into the closed top drawer，打开上层抽屉并放入方块](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
 
 [真机部署指南](docs/rebot.zh-CN.md) · [视频信息](assets/demos/manifest.json)
 

@@ -1,5 +1,5 @@
 {
-  "description": "User-supplied FastWAM RTC demonstrations on ReBot / B601. Original MP4 videos are published without transcoding or editing. Posters are extracted frames. Silent GIF previews show the full clip at the original speed, reduced to 384 x 216 pixels and 8 fps.",
+  "description": "User-supplied FastWAM RTC demonstrations on ReBot / B601. Original MP4 videos are published without transcoding or editing. Posters are extracted frames. Silent GIF previews show the full clip at the original speed, reduced to 360 x 202 pixels and 6 fps with a 64-color palette, matching the compact task previews in juxingyiwan/wall-x.",
   "published_date": "2026-10-26",
   "rtc": true,
   "videos": [
@@ -19,13 +19,16 @@
       "preview": {
         "file": "fastwam-cube-rtc.gif",
         "format": "gif",
-        "width": 384,
-        "height": 216,
-        "fps": 8,
+        "width": 360,
+        "height": 202,
+        "fps": 6,
+        "palette_colors": 64,
+        "dither": "bayer",
+        "bayer_scale": 5,
         "playback_speed": 1,
         "audio": false,
-        "bytes": 3402153,
-        "sha256": "37b80af6380ea42cdbfd98334e6ce185abc5b097aace9d598e42cb74181c4831"
+        "bytes": 2491404,
+        "sha256": "62f1f18c4acd9e25ac641e958a8eefa5ccbd1052159331f4ac8cc16ee6911713"
       }
     },
     {
@@ -44,13 +47,16 @@
       "preview": {
         "file": "fastwam-pen-rtc.gif",
         "format": "gif",
-        "width": 384,
-        "height": 216,
-        "fps": 8,
+        "width": 360,
+        "height": 202,
+        "fps": 6,
+        "palette_colors": 64,
+        "dither": "bayer",
+        "bayer_scale": 5,
         "playback_speed": 1,
         "audio": false,
-        "bytes": 1858853,
-        "sha256": "f5b2902a21c61306a789c580d6e7641b42bf6fa22a61936f4dd5c408a04eb4c8"
+        "bytes": 1372077,
+        "sha256": "5b7dfbef1b34649c96a1a791612aa84bf921514ed50b015d1a750e4884a87c66"
       }
     },
     {
@@ -69,13 +75,16 @@
       "preview": {
         "file": "fastwam-drawer-rtc.gif",
         "format": "gif",
-        "width": 384,
-        "height": 216,
-        "fps": 8,
+        "width": 360,
+        "height": 202,
+        "fps": 6,
+        "palette_colors": 64,
+        "dither": "bayer",
+        "bayer_scale": 5,
         "playback_speed": 1,
         "audio": false,
-        "bytes": 3264473,
-        "sha256": "08c6b1402605d43e39e3221829e6b57952a341928d4e5b6e3a75de88a8128161"
+        "bytes": 2426026,
+        "sha256": "7163026acd9a416932d4a8abfeacad2b7ab54ede3f4795a6925b4c92972e7d8b"
       }
     }
   ]

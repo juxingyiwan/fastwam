@@ -6,16 +6,17 @@ Train and evaluate FastWAM policies, prepare end-effector delta data, and deploy
 
 This submission tree is based on upstream FastWAM `7faa71108368fbb3b6885649f112af607427a2d4` and the audited deployment source. It preserves the deployed model, control, homing and RTC implementations. Machine-specific orchestration and generated artifacts are kept outside the project. Source identities are recorded in [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json).
 
+<a id="rebot-demos"></a>
+
 ## ReBot / B601: FastWAM with RTC
 
-Three real-robot demonstrations with RTC enabled: placing the cube in the bowl, placing the pen in the box, and opening the top drawer to place the cube inside. The silent GIF previews below show the full clips at their original speed. Click a preview to open the full-resolution video player.
+Three real-robot task demonstrations with **RTC enabled**. The silent animations show each complete demonstration at its original speed. Click a preview to play the original 720p video with sound and fullscreen controls. The headings show the full task instructions.
 
-**[▶ Watch all three videos with sound and fullscreen controls](https://juxingyiwan.github.io/fastwam/)**
+**[Watch all robot demonstrations](https://juxingyiwan.github.io/fastwam/)**
 
-| Cube → bowl | Pen → box | Cube → top drawer |
+| `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |
-| [![FastWAM with RTC: placing the cube in the bowl](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM with RTC: placing the pen in the box](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM with RTC: opening the top drawer and placing the cube inside](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
-| [Watch · 18.7 s](https://juxingyiwan.github.io/fastwam/#cube) | [Watch · 11.4 s](https://juxingyiwan.github.io/fastwam/#pen) | [Watch · 17.4 s](https://juxingyiwan.github.io/fastwam/#drawer) |
+| [![FastWAM with RTC: Grasp the cube to the bowl](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM with RTC: Grasp the pen to the box](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM with RTC: Grasp the cube into the closed top drawer](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
 
 [Robot deployment guide](docs/rebot.md) · [Video metadata](assets/demos/manifest.json)
 
