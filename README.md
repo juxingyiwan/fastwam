@@ -12,7 +12,7 @@ This submission tree is based on upstream FastWAM `7faa71108368fbb3b6885649f112a
 
 Three real-robot task demonstrations with **RTC enabled**. The silent animations show each complete demonstration at its original speed. Click a preview to play the original 720p video with sound and fullscreen controls. The headings show the full task instructions.
 
-**[Watch all robot demonstrations](https://juxingyiwan.github.io/fastwam/)**
+🎬 **[Watch all robot demonstrations](https://juxingyiwan.github.io/fastwam/)**
 
 | `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |

@@ -12,7 +12,7 @@
 
 以下为 **开启 RTC** 的三项真机任务演示：方块入碗、笔入盒，以及打开上层抽屉并放入方块。下方无声动图按原速展示每段完整演示，表头保留完整任务指令。点击动图可播放原始 720p 视频，支持声音和全屏控制。
 
-**[观看全部真机演示](https://juxingyiwan.github.io/fastwam/)**
+🎬 **[观看全部真机演示](https://juxingyiwan.github.io/fastwam/)**
 
 | `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |
