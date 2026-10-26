@@ -1,6 +1,6 @@
 # FastWAM: LIBERO, RoboTwin and ReBot
 
-[中文](README.zh-CN.md) · [<img src="assets/play-circle.svg" width="16" height="16" alt=""> Video showcase](https://juxingyiwan.github.io/fastwam/) · [Upstream FastWAM](https://github.com/yuantianyuan01/FastWAM) · [Contributing](CONTRIBUTING.md) · [All CI checks](https://github.com/juxingyiwan/fastwam/actions)
+[中文](README.zh-CN.md) · [🎬 Video showcase](https://juxingyiwan.github.io/fastwam/) · [Upstream FastWAM](https://github.com/yuantianyuan01/FastWAM) · [Contributing](CONTRIBUTING.md) · [All CI checks](https://github.com/juxingyiwan/fastwam/actions)
 
 [![Source and CPU regressions](https://github.com/juxingyiwan/fastwam/actions/workflows/cpu.yml/badge.svg?branch=main)](https://github.com/juxingyiwan/fastwam/actions/workflows/cpu.yml)
 
@@ -16,12 +16,12 @@ This submission tree is based on upstream FastWAM `7faa71108368fbb3b6885649f112a
 
 Three real-robot task demonstrations with **RTC enabled**. The silent animations show each complete demonstration at its original speed. Click a preview to play the original 720p video with sound and fullscreen controls. The headings show the full task instructions.
 
-[<img src="assets/play-circle.svg" width="16" height="16" alt=""> Video showcase](https://juxingyiwan.github.io/fastwam/)
+[🎬 Video showcase](https://juxingyiwan.github.io/fastwam/)
 
 | `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |
 | [![FastWAM with RTC: Grasp the cube to the bowl](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM with RTC: Grasp the pen to the box](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM with RTC: Grasp the cube into the closed top drawer](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
-| [<img src="assets/play-circle.svg" width="16" height="16" alt=""> Watch video · 18.7 s](https://juxingyiwan.github.io/fastwam/#cube) | [<img src="assets/play-circle.svg" width="16" height="16" alt=""> Watch video · 11.4 s](https://juxingyiwan.github.io/fastwam/#pen) | [<img src="assets/play-circle.svg" width="16" height="16" alt=""> Watch video · 17.4 s](https://juxingyiwan.github.io/fastwam/#drawer) |
+| [🎬 Watch video · 18.7 s](https://juxingyiwan.github.io/fastwam/#cube) | [🎬 Watch video · 11.4 s](https://juxingyiwan.github.io/fastwam/#pen) | [🎬 Watch video · 17.4 s](https://juxingyiwan.github.io/fastwam/#drawer) |
 
 [Robot deployment guide](docs/rebot.md) · [Video metadata](assets/demos/manifest.json)
 
