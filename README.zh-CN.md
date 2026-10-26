@@ -1,10 +1,14 @@
-# FastWAM：LIBERO、RoboTwin 与 ReBot / B601
+# FastWAM：LIBERO、RoboTwin 与 ReBot
 
-[English](README.md) · [FastWAM 上游](https://github.com/yuantianyuan01/FastWAM) · [贡献说明](CONTRIBUTING.zh-CN.md)
+[English](README.md) · [▶ 视频展厅](https://juxingyiwan.github.io/fastwam/) · [上游 FastWAM](https://github.com/yuantianyuan01/FastWAM) · [贡献指南](CONTRIBUTING.zh-CN.md) · [全部 CI 检查](https://github.com/juxingyiwan/fastwam/actions)
 
-本工程包含 FastWAM 训练与仿真评测、末端增量数据准备，以及原生 checkpoint 的 ReBot / B601 真机部署。
+[![Source and CPU regressions](https://github.com/juxingyiwan/fastwam/actions/workflows/cpu.yml/badge.svg?branch=main)](https://github.com/juxingyiwan/fastwam/actions/workflows/cpu.yml)
+
+**训练 FastWAM 策略，在仿真中评估，并部署到 ReBot / B601 真机。**
 
 提交工程基于上游 `7faa71108368fbb3b6885649f112af607427a2d4` 和已审计的部署源码。模型、控制、回零和 RTC 实现保留；机器专用编排与生成产物放在工程外。来源及源码指纹见 [SOURCE_PROVENANCE.json](SOURCE_PROVENANCE.json)。
+
+[开始使用](#workflows) · [真机演示](#rebot-demos) · [开发与来源](#development)
 
 <a id="rebot-demos"></a>
 
@@ -12,13 +16,16 @@
 
 以下为 **开启 RTC** 的三项真机任务演示：方块入碗、笔入盒，以及打开上层抽屉并放入方块。下方无声动图按原速展示每段完整演示，表头保留完整任务指令。点击动图可播放原始 720p 视频，支持声音和全屏控制。
 
-🎬 **[观看全部真机演示](https://juxingyiwan.github.io/fastwam/)**
+[▶ 视频展厅](https://juxingyiwan.github.io/fastwam/)
 
 | `Grasp the cube to the bowl` | `Grasp the pen to the box` | `Grasp the cube into the closed top drawer` |
 | --- | --- | --- |
 | [![FastWAM RTC：Grasp the cube to the bowl，将方块放入碗中](assets/demos/fastwam-cube-rtc.gif)](https://juxingyiwan.github.io/fastwam/#cube) | [![FastWAM RTC：Grasp the pen to the box，将笔放入盒中](assets/demos/fastwam-pen-rtc.gif)](https://juxingyiwan.github.io/fastwam/#pen) | [![FastWAM RTC：Grasp the cube into the closed top drawer，打开上层抽屉并放入方块](assets/demos/fastwam-drawer-rtc.gif)](https://juxingyiwan.github.io/fastwam/#drawer) |
+| [▶ 播放视频 · 18.7 秒](https://juxingyiwan.github.io/fastwam/#cube) | [▶ 播放视频 · 11.4 秒](https://juxingyiwan.github.io/fastwam/#pen) | [▶ 播放视频 · 17.4 秒](https://juxingyiwan.github.io/fastwam/#drawer) |
 
 [真机部署指南](docs/rebot.zh-CN.md) · [视频信息](assets/demos/manifest.json)
+
+<a id="workflows"></a>
 
 ## 按场景开始
 
@@ -53,6 +60,8 @@ export PYTHONPATH="$PWD/src:$PWD${PYTHONPATH:+:$PYTHONPATH}"
 动作包含基坐标系平移增量、旋转向量和一个夹爪通道，共七维；每一步基于新反馈解码。默认同步执行，RTC 需要显式开启。详见[数据约定](experiments/b601/docs/data.md)、[配置模板](experiments/b601/configs/local.example.yml)及[回零实现说明](experiments/b601/NATIVE_HOMING.md)。
 
 先检查 `models`、`config`，再使用兼容模型包进行离线 `check`。硬件预检和真机运行应在有人看护的现场进行。CPU 测试不等同于真机轨迹或任务成功率验证。
+
+<a id="development"></a>
 
 ## 开发与来源
 

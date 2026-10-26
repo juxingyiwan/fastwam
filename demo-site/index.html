@@ -1,11 +1,40 @@
 <!doctype html>
+<!--
+Template adapted from https://github.com/juxingyiwan/fastwam
+Source revision: 3a9dc35086c1ce99ab6cd639e1e6c867754103de
+
+MIT License
+
+Copyright (c) 2026 The FastWAM Authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+Except for third-party code and files that retain their original license
+headers, this repository is released under the MIT License.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+-->
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Three FastWAM demonstrations with RTC on the ReBot / B601: cube to bowl, pen to box, and cube into the top drawer.">
+  <meta name="description" content="Three FastWAM task demonstrations on ReBot / B601: Grasp the cube to the bowl; Grasp the pen to the box; Grasp the cube into the closed top drawer.">
   <meta name="color-scheme" content="dark">
-  <title>FastWAM — Real-robot demos / 真机演示</title>
+  <title>FastWAM — In action / 真机演示</title>
   <style>
     :root { color-scheme: dark; font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: #10171c; color: #ecf1f2; }
     * { box-sizing: border-box; }
@@ -27,16 +56,18 @@
     .gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; padding: 12px 0 44px; }
     article { min-width: 0; background: #1a252c; border: 1px solid #344047; border-radius: 14px; overflow: hidden; scroll-margin-top: 24px; }
     article:target { border-color: #9ce6d4; }
+    @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+      article { transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+      article:hover { transform: translateY(-4px); border-color: #9ce6d4; box-shadow: 0 14px 40px #0004; }
+    }
     video { display: block; width: 100%; aspect-ratio: 16 / 9; background: #000; }
     .details { padding: 22px; }
-    .meta { display: flex; justify-content: space-between; gap: 12px; color: #acb9c0; font-size: 12px; letter-spacing: .06em; margin-bottom: 16px; }
+    .meta { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; color: #acb9c0; font-size: 12px; letter-spacing: .06em; margin-bottom: 16px; }
     .tag { color: #9ce6d4; }
     h2 { margin: 0 0 5px; font-size: 22px; letter-spacing: -.025em; line-height: 1.35; }
     .zh { color: #acb9c0; margin: 0 0 18px; font-size: 15px; }
     .download { font-size: 13px; }
-    .help { border-top: 1px solid #344047; padding: 26px 0; color: #acb9c0; font-size: 14px; }
-    .help p { margin: 0 0 8px; }
-    footer { padding: 12px 0 36px; font-size: 13px; color: #82959e; }
+    footer { border-top: 1px solid #344047; padding: 12px 0 36px; font-size: 13px; color: #82959e; }
     @media (max-width: 1050px) { .gallery { grid-template-columns: 1fr; max-width: 800px; } }
     @media (max-width: 600px) { .wrap { width: calc(100% - 32px); } header { padding-top: 42px; } .top nav { gap: 16px; } .details { padding: 18px; } }
   </style>
@@ -52,14 +83,14 @@
     </div>
     <main>
       <header>
-        <p class="eyebrow">ReBot / B601 · RTC enabled</p>
-        <h1>FastWAM in action.<span lang="zh-CN">FastWAM RTC 真机演示</span></h1>
-        <p class="intro">Three tasks on a real robot. Play the original 720p recordings below.</p>
-        <p class="intro" lang="zh-CN">点击播放完整原视频，支持全屏观看；视频保留原始速度和音轨。</p>
+        <p class="eyebrow">FastWAM · ReBot / B601 · RTC enabled</p>
+        <h1>FastWAM in action.<span lang="zh-CN">FastWAM 真机演示</span></h1>
+        <p class="intro">Three tasks. One real robot. Complete 720p recordings at their original speed, with sound.</p>
+        <p class="intro" lang="zh-CN">三项任务，真实机器人。观看完整 720p 原视频，保留原始速度与音轨。</p>
         <nav class="jump" aria-label="Jump to a demonstration">
-          <a href="#cube">01 · Cube / <span lang="zh-CN">方块</span></a>
-          <a href="#pen">02 · Pen / <span lang="zh-CN">笔</span></a>
-          <a href="#drawer">03 · Drawer / <span lang="zh-CN">抽屉</span></a>
+          <a href="#cube">01 · Grasp the cube to the bowl</a>
+          <a href="#pen">02 · Grasp the pen to the box</a>
+          <a href="#drawer">03 · Grasp the cube into the closed top drawer</a>
         </nav>
       </header>
       <section class="gallery" aria-label="Real-robot video demonstrations">
@@ -69,8 +100,8 @@
             <a href="assets/demos/fastwam-cube-rtc.mp4">Download the cube demonstration / 下载方块演示</a>
           </video>
           <div class="details">
-            <div class="meta"><span class="tag">01 · RTC</span><span>18.7 s · 1280 × 720</span></div>
-            <h2 id="cube-title">Cube → bowl</h2>
+            <div class="meta"><span class="tag">01 · RTC enabled</span><span>18.7 s · 1280 × 720</span></div>
+            <h2 id="cube-title">Grasp the cube to the bowl</h2>
             <p class="zh" lang="zh-CN">将方块放入碗中</p>
             <a class="download" href="assets/demos/fastwam-cube-rtc.mp4" download>Download MP4 / <span lang="zh-CN">下载原视频</span> · 4.0 MB</a>
           </div>
@@ -81,8 +112,8 @@
             <a href="assets/demos/fastwam-pen-rtc.mp4">Download the pen demonstration / 下载笔演示</a>
           </video>
           <div class="details">
-            <div class="meta"><span class="tag">02 · RTC</span><span>11.4 s · 1280 × 720</span></div>
-            <h2 id="pen-title">Pen → box</h2>
+            <div class="meta"><span class="tag">02 · RTC enabled</span><span>11.4 s · 1280 × 720</span></div>
+            <h2 id="pen-title">Grasp the pen to the box</h2>
             <p class="zh" lang="zh-CN">将笔放入盒中</p>
             <a class="download" href="assets/demos/fastwam-pen-rtc.mp4" download>Download MP4 / <span lang="zh-CN">下载原视频</span> · 2.4 MB</a>
           </div>
@@ -93,19 +124,25 @@
             <a href="assets/demos/fastwam-drawer-rtc.mp4">Download the drawer demonstration / 下载抽屉演示</a>
           </video>
           <div class="details">
-            <div class="meta"><span class="tag">03 · RTC</span><span>17.4 s · 1280 × 720</span></div>
-            <h2 id="drawer-title">Cube → top drawer</h2>
+            <div class="meta"><span class="tag">03 · RTC enabled</span><span>17.4 s · 1280 × 720</span></div>
+            <h2 id="drawer-title">Grasp the cube into the closed top drawer</h2>
             <p class="zh" lang="zh-CN">打开上层抽屉并放入方块</p>
             <a class="download" href="assets/demos/fastwam-drawer-rtc.mp4" download>Download MP4 / <span lang="zh-CN">下载原视频</span> · 3.7 MB</a>
           </div>
         </article>
       </section>
-      <aside class="help" aria-label="Playback help">
-        <p>Use the player controls for playback, sound and fullscreen. If playback is unavailable, download the MP4 or view the animated previews in the <a href="https://github.com/juxingyiwan/fastwam#rebot--b601-fastwam-with-rtc">README</a>.</p>
-        <p lang="zh-CN">可通过播放器控制播放、声音和全屏。如果无法播放，请下载 MP4，或查看 <a href="https://github.com/juxingyiwan/fastwam/blob/main/README.zh-CN.md">README 中的 GIF 动图</a>。</p>
-      </aside>
     </main>
     <footer>FastWAM · <a href="https://github.com/juxingyiwan/fastwam">GitHub</a> · <a href="assets/demos/manifest.json">Video metadata / <span lang="zh-CN">视频信息</span></a></footer>
   </div>
+  <script>
+    const videos = document.querySelectorAll('video');
+    for (const video of videos) {
+      video.addEventListener('play', () => {
+        for (const other of videos) {
+          if (other !== video) other.pause();
+        }
+      });
+    }
+  </script>
 </body>
 </html>
