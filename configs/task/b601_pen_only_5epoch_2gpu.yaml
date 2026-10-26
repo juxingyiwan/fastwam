@@ -1,0 +1,18 @@
+# @package _global_
+
+defaults:
+  - b601_single_task_5epoch
+  - _self_
+
+# Preserved two-GPU attempt: first optimizer step OOM on node16 (80GB); not a validated fallback.
+# Two GPUs x micro-batch 4 x accumulation 16 = effective batch 128.
+batch_size: 4
+gradient_accumulation_steps: 16
+output_dir: ${oc.env:FASTWAM_RUN_ROOT,${oc.env:FASTWAM_CACHE_ROOT,${oc.env:HOME}/.cache/fastwam}/runs}/b601_pen_only_5epoch_2gpu/${now:%Y-%m-%d_%H-%M-%S}
+data:
+  train:
+    task_index: 2
+    task_text: Grasp the pen to the box
+  val:
+    task_index: 2
+    task_text: Grasp the pen to the box

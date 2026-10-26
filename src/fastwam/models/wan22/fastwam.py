@@ -975,6 +975,21 @@ class FastWAM(torch.nn.Module):
             "action": action_out,
         }
 
+    def model_rtc_capability(self):
+        supported = type(self).infer_action is FastWAM.infer_action
+        return {
+            "supported": supported,
+            "guidance_modes": ("lerobot", "pi_vjp") if supported else (),
+            "condition_space": "normalized_model_action",
+            "backend": "native_pytorch",
+            "time_convention": "noise_at_one_action_at_zero",
+            "input_gradients": supported,
+            "gradient_modes": ("pi_vjp",) if supported else (),
+        }
+
+    def supports_rtc(self):
+        return self.model_rtc_capability()["supported"]
+
     @torch.no_grad()
     def infer_action(
         self,
@@ -992,8 +1007,14 @@ class FastWAM(torch.nn.Module):
         rand_device: str = "cpu",
         tiled: bool = False,
         compile_action_infer: bool = False,
+        rtc_condition=None,
     ) -> dict[str, Any]:
         self.eval()
+        if rtc_condition is not None:
+            if not self.supports_rtc() or compile_action_infer:
+                raise ValueError("RTC requires the native uncompiled FastWAM action backend")
+            from fastwam.models.rtc.condition import prepare_condition
+            from .rtc_adapter import guided_wan_velocity
         if str(getattr(self.video_expert, "video_attention_mask_mode", "")) != "first_frame_causal":
             raise ValueError(
                 "`infer_action` requires `video_attention_mask_mode='first_frame_causal'`."
@@ -1030,6 +1051,9 @@ class FastWAM(torch.nn.Module):
             device=rand_device,
             dtype=torch.float32,
         ).to(device=self.device, dtype=self.torch_dtype)
+
+        if rtc_condition is not None:
+            rtc_condition = prepare_condition(rtc_condition, latents_action)
 
         input_image = input_image.to(device=self.device, dtype=self.torch_dtype)
         first_frame_latents = self._encode_input_image_latents_tensor(input_image=input_image, tiled=tiled)
@@ -1136,24 +1160,39 @@ class FastWAM(torch.nn.Module):
             dtype=latents_action.dtype,
             shift_override=sigma_shift,
         )
+        if rtc_condition is not None:
+            final_time = 1 - infer_timesteps_action[-1].float() / self.infer_action_scheduler.num_train_timesteps
+            if final_time + 1e-7 < rtc_condition.guidance_start:
+                raise ValueError("RTC guidance window contains no model sampling steps")
         for step_t_action, step_delta_action in zip(infer_timesteps_action, infer_deltas_action):
             if compile_action_infer:
                 torch.compiler.cudagraph_mark_step_begin()
             timestep_action = step_t_action.unsqueeze(0).to(dtype=latents_action.dtype, device=self.device)
 
-            pred_action_posi = denoise_action_with_video_cache(
-                latents_action=latents_action,
-                timestep_action=timestep_action,
-                context=context,
-                context_mask=context_mask,
-                video_cache_k=video_cache_k,
-                video_cache_v=video_cache_v,
-                action_attention_mask=action_attention_mask,
-            )
-            pred_action = pred_action_posi
+            if rtc_condition is None:
+                pred_action_posi = denoise_action_with_video_cache(
+                    latents_action=latents_action,
+                    timestep_action=timestep_action,
+                    context=context,
+                    context_mask=context_mask,
+                    video_cache_k=video_cache_k,
+                    video_cache_v=video_cache_v,
+                    action_attention_mask=action_attention_mask,
+                )
+                pred_action = pred_action_posi
+            else:
+                pred_action = guided_wan_velocity(
+                    denoise_action_with_video_cache, latents_action, timestep_action,
+                    self.infer_action_scheduler.num_train_timesteps, rtc_condition,
+                    context=context, context_mask=context_mask,
+                    video_cache_k=video_cache_k, video_cache_v=video_cache_v,
+                    action_attention_mask=action_attention_mask,
+                )
 
             latents_action = self.infer_action_scheduler.step(pred_action, step_delta_action, latents_action)
 
+        if rtc_condition is not None and not torch.isfinite(latents_action).all():
+            raise RuntimeError("RTC produced non-finite actions")
         return {
             "action": latents_action[0].detach().to(device="cpu", dtype=torch.float32),
         }

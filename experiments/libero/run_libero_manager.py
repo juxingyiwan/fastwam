@@ -73,7 +73,7 @@ def _resolve_worker_task_choice() -> str:
     if task_choice is None or str(task_choice).strip() == "":
         raise ValueError(
             "Hydra task choice is empty. Pass task=..., for example "
-            "task=libero_uncond_2cam224_1e-4."
+            "task=archive/simulation/libero_uncond_2cam224_1e-4."
         )
     return str(task_choice)
 

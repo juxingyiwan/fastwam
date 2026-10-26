@@ -1,0 +1,22 @@
+{
+  "port": "can0",
+  "can_adapter": "socketcan",
+  "id": "follower1",
+  "max_relative_target": null,
+  "cameras": {
+    "front": {
+      "index_or_path": "/dev/video0",
+      "width": 640,
+      "height": 480,
+      "fps": 30,
+      "fourcc": "MJPG"
+    },
+    "side": {
+      "index_or_path": "/dev/video2",
+      "width": 640,
+      "height": 480,
+      "fps": 30,
+      "fourcc": "MJPG"
+    }
+  }
+}

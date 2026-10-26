@@ -112,6 +112,8 @@ def decode_video_frames_torchvision(
     # set a video stream reader
     # TODO(rcadene): also load audio stream at the same time
     reader = torchvision.io.VideoReader(video_path, "video")
+    if backend == "pyav":
+        reader.container.streams.video[0].thread_count = 1
 
     # set the first and last requested timestamps
     # Note: previous timestamps are usually loaded, since we need to access the previous key frame

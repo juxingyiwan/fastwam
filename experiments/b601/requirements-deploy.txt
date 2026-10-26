@@ -1,0 +1,8 @@
+# Additional dependency on top of the native FastWAM environment.
+scipy>=1.10,<2
+# Shared B601 hardware protocol, tested against the on-site Wall-X driver.
+lerobot-robot-seeed-b601==1.0.4
+motorbridge==0.5.3
+python-can==4.6.1
+PyYAML>=6,<7
+rerun-sdk>=0.26.2,<0.34

@@ -2,7 +2,7 @@
 
 Example:
     python scripts/dryrun_fastwam.py \
-      task=libero_uncond_2cam224_1e-4 \
+      task=archive/simulation/libero_uncond_2cam224_1e-4 \
       ckpt=./checkpoints/fastwam_release/libero_uncond_2cam224.pt \
       +DRYRUN.compile_action_infer=true \
       +DRYRUN.warmup=2 +DRYRUN.iters=10

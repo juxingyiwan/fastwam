@@ -1,0 +1,18 @@
+FastWAM submission tree
+
+The FastWAM core retains the MIT license in LICENSE and upstream copyright headers.
+Upstream: https://github.com/yuantianyuan01/FastWAM
+Base revision: 7faa71108368fbb3b6885649f112af607427a2d4
+
+The B601 runtime was adapted from the wallx-unified client at revision
+8fec967e92d2479b0ef839139fcab9146d4dc255. Its Apache-2.0 license and source
+identities are retained in experiments/b601/runtime/LICENSE, NOTICE.txt and
+upstream.json. Subsequent local modifications are identified there.
+
+Vendored RoboTwin source retains third_party/RoboTwin/LICENSE and source headers.
+Other vendored model/data modules retain their original notices and headers.
+Model weights, datasets, robot drivers and simulator assets are distributed
+separately and retain their own licenses.
+
+Documentation organization was informed by juxingyiwan/wall-x. No Wall-X
+benchmark scores or demonstration media are claimed as FastWAM results.

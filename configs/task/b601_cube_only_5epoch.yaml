@@ -1,0 +1,17 @@
+# @package _global_
+
+defaults:
+  - b601_single_task_5epoch
+  - _self_
+
+# Four GPUs x 16 x 2 = 128.
+batch_size: 16
+gradient_accumulation_steps: 2
+output_dir: ${oc.env:FASTWAM_RUN_ROOT,${oc.env:FASTWAM_CACHE_ROOT,${oc.env:HOME}/.cache/fastwam}/runs}/b601_cube_only_5epoch/${now:%Y-%m-%d_%H-%M-%S}
+data:
+  train:
+    task_index: 0
+    task_text: Grasp the cube to the bowl
+  val:
+    task_index: 0
+    task_text: Grasp the cube to the bowl

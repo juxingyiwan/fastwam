@@ -1,0 +1,20 @@
+{
+  "base_link": "base_link",
+  "tool_link": "gripper_end",
+  "joint_names": ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6"],
+  "recorded_feature_names": ["shoulder_pan.pos", "shoulder_lift.pos", "elbow_flex.pos", "wrist_flex.pos", "wrist_yaw.pos", "wrist_roll.pos", "gripper.pos"],
+  "command_to_motor_scale": [1, 1, -1, -1, -1, 1, 6],
+  "motor_to_urdf_offset_rad": [0, 0, 0, 0, 0, 0],
+  "gripper_command_endpoints": [0, 45],
+  "driver_motor_limits_deg": [[-145, 145], [0, 170], [0, 200], [-80, 90], [-90, 90], [-130, 130], [0, 270]],
+  "expected_fps": 30,
+  "horizon": 32,
+  "split_seed": 10222,
+  "validation_episodes_per_task": 1,
+  "normalization": "min/max",
+  "urdf_sha256": "2012b5aa3b58878109cb9e3c5deef919a87bd09a67d561662b2904a30dd4397e",
+  "driver_revision": "0da1a1a5575905d77823227003ffee7672059780",
+  "driver_url": "https://github.com/Seeed-Projects/lerobot-robot-seeed-b601/tree/0da1a1a5575905d77823227003ffee7672059780",
+  "calibration_status": "Driver-derived joint mapping and nominal gripper endpoints; physical zero, axis, TCP and jaw-width calibration are unverified.",
+  "target_policy": "recorded_pre_driver_commands_without_clipping"
+}

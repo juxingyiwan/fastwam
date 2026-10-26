@@ -144,6 +144,22 @@ class Wan22Trainer:
             self.model, self.optimizer, self.train_loader, self.scheduler
         )
         self.optimizer.zero_grad(set_to_none=True)
+        expected_batch = self.batch_size * self.accelerator.num_processes * self.gradient_accumulation_steps
+        batch_contract = {
+            "world_size": self.accelerator.num_processes,
+            "micro_batch": self.model.train_micro_batch_size_per_gpu(),
+            "gradient_accumulation_steps": self.model.gradient_accumulation_steps(),
+            "effective_batch": self.model.train_batch_size(),
+            "micro_batches_per_epoch_per_rank": len(self.train_loader),
+            "planned_optimizer_steps": self.max_steps,
+        }
+        assert batch_contract["effective_batch"] == expected_batch, batch_contract
+        assert batch_contract["micro_batch"] == self.batch_size, batch_contract
+        assert batch_contract["gradient_accumulation_steps"] == self.gradient_accumulation_steps, batch_contract
+        assert len(self.train_loader) % self.gradient_accumulation_steps == 0, batch_contract
+        if self.accelerator.is_main_process:
+            Path(self.output_dir, "batch_contract.json").write_text(json.dumps(batch_contract, indent=2))
+            logger.info("[batch-contract] %s", batch_contract)
         self.wandb_run = None
         self._init_wandb()
         self._resume_or_load_checkpoint()
@@ -193,6 +209,10 @@ class Wan22Trainer:
             seed=self.seed,
             batch_size=self.batch_size,
             num_processes=self.accelerator.num_processes,
+            pad_to_multiple=(
+                self.batch_size * self.accelerator.num_processes * self.gradient_accumulation_steps
+                if self.gradient_accumulation_steps > 1 else 1
+            ),
         )
         return DataLoader(
             dataset,
@@ -732,7 +752,7 @@ class Wan22Trainer:
                         description += "lr=%.2e speed=%.2f step/s, %.2f samples/s eta=%s" % (
                             current_lr,
                             steps_per_sec,
-                            steps_per_sec * self.batch_size * self.accelerator.num_processes,
+                            steps_per_sec * self.batch_size * self.accelerator.num_processes * self.gradient_accumulation_steps,
                             eta_str,
                         )
                         logger.info(description)
@@ -742,7 +762,7 @@ class Wan22Trainer:
                             "train/grad_norm": global_grad_norm,
                             "train/lr": current_lr,
                             "performance/steps_per_sec": steps_per_sec,
-                            "performance/samples_per_sec": steps_per_sec * self.batch_size * self.accelerator.num_processes,
+                            "performance/samples_per_sec": steps_per_sec * self.batch_size * self.accelerator.num_processes * self.gradient_accumulation_steps,
                         }
                         for key, value in global_loss_metrics.items():
                             wandb_payload[f"train/{key}"] = value

@@ -1,0 +1,12 @@
+# @package _global_
+defaults:
+  - libero10_idm_visual_ttt
+  - _self_
+
+# Integration/smoke run only. Do not mix these results with the 64-update recipe.
+EVALUATION:
+  num_trials: 1
+TTT:
+  task_ids: [0]
+  collection_rollouts: 1
+  windows_per_rollout: 2

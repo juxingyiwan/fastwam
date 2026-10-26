@@ -1,0 +1,11 @@
+# @package _global_
+
+defaults:
+  - b601_uncond_2cam224
+  - _self_
+
+# Start a new run from the base Wan and ActionDiT weights. The native trainer
+# derives both its 5% warmup and cosine horizon from the full ten-epoch budget.
+num_epochs: 10
+max_steps: null
+resume: null

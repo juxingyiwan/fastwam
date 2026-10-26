@@ -1,0 +1,5 @@
+B601 runtime adapted from wallx-unified deployment/client at commit
+8fec967e92d2479b0ef839139fcab9146d4dc255, under Apache License 2.0.
+See LICENSE and upstream.json for source identities and retained/modified files.
+The deployed adapter includes subsequent hardware, homing and telemetry changes.
+FastWAM configuration, model connection, EE action execution and CLI are separate adapters.

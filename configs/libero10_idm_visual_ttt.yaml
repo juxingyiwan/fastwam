@@ -1,0 +1,51 @@
+# @package _global_
+defaults:
+  - sim_libero
+  - override /task: archive/simulation/libero_optional_idm_2cam224_1e-4
+  - _self_
+
+ckpt: checkpoints/fastwam_release/libero_optional_idm_2cam224.pt
+mixed_precision: bf16
+model:
+  load_text_encoder: true
+  skip_dit_load_from_pretrain: true
+  action_dit_pretrained_path: null
+  redirect_common_files: false
+  compile_training_denoise: false
+
+EVALUATION:
+  task_suite_name: libero_10
+  num_trials: 50
+  dataset_stats_path: checkpoints/fastwam_release/libero_optional_idm_2cam224_dataset_stats.json
+  action_infer_mode: idm
+  sigma_shift: 1.0
+  num_inference_steps: 10
+  replan_steps: 10
+  num_steps_wait: 30
+  compile_action_infer: true
+  visualize_future_video: false
+  use_action_ensembler: false
+
+MULTIRUN:
+  task_suite_names: [libero_10]
+  num_gpus: 4
+
+TTT:
+  enabled: true
+  stage: full
+  run_id: manual
+  output_root: ${oc.env:HOME}/.cache/fastwam-sgttt/evaluation_results/libero10_idm_visual_ttt
+  task_ids: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+  collection_rollouts: 8
+  collection_steps: 60
+  windows_per_rollout: 8
+  adaptation_seeds: ["${seed}"]
+  epochs: 1
+  learning_rate: 1.0e-4
+  max_grad_norm: 0.1
+  lora_rank: 32
+  lora_alpha: 16
+  lora_pattern: 'blocks\.\d+\.(self_attn\.(q|k|v|o)|ffn\.(0|2))'
+  gradient_checkpointing: true
+  parity_relative_tolerance: 0.02
+  save_eval_videos: true

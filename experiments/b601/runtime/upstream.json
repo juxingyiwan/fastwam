@@ -1,0 +1,35 @@
+{
+  "repository": "wallx-unified",
+  "commit": "8fec967e92d2479b0ef839139fcab9146d4dc255",
+  "source_directory": "deployment/client/src/wallx_client",
+  "license": "Apache-2.0",
+  "unchanged_files": {
+    "contracts.py": "8313d42807d2c64926984d6ffe3eead7e8981605f65a052d8c189de9398f5a61",
+    "camera_recovery.py": "39daf08bc4602d58e2b766d28113d676285137a25a32637c079c7e703a35ebce",
+    "lifecycle.py": "dd01c40e8d20f6db3327815a36793dc42f53310a2328121032020c72040234b2",
+    "locks.py": "abdfb241aef3972030d68bac26476e3599d84bedfd97e04bddc1294eb90b6e1a",
+    "workers.py": "170cec92f45a48802d87dcf62b1d66c01572d0b868bbc6c337384332148dc27e",
+    "recording.py": "8228e451d98964408627f18038a4ddfe0e10d7a3dae3eacddc9ec6d30aa854e2",
+    "hardware/camera_metrics.py": "3b8a9704f1cdb7b31a33da8c30c71eda915969585700fdb6827152a2db459a7f",
+    "hardware/robstride_temperature.py": "914458fba90ab673ce525a9d7023a6f0cffdca7aec19fe491291dffd1289fff6",
+    "hardware/temperature_guard.py": "57b247dabbcd1e9c95f5bb5e4e39e4081c268481309899409bc6d27fa6c53c95",
+    "hardware/__init__.py": "a80211f4e0bf9e51385e1035780ef25c1ca0050cf94830bcffaf0ac350c7a00c"
+  },
+  "adapted_files": {
+    "telemetry.py": {
+      "upstream_sha256": "293de95ecc7fefa6bf5d1048d3b4746664ec7744a88e1daf347578b2cd2ae890",
+      "local_sha256": "8a8b60c6cecb10ed84c4ee585104932c124c7a9711eb434a535db19540aa6057",
+      "changes": "FastWAM recording title and configuration help; media behavior unchanged."
+    },
+    "hardware/b601.py": {
+      "upstream_sha256": "70fb82f3b4e263646346a4dfc3acee0b89d0720f01cef23c68375a33c9908063",
+      "local_sha256": "5db1f0da390432e3b61f2bf9469c29cc2de85cff8fefc54385f0a663fab43583",
+      "changes": "Subsequent deployed B601 adapter changes; see NATIVE_HOMING.md and source history."
+    },
+    "hardware/homing.py": {
+      "upstream_sha256": "c5d5d226c0ab17d2eb3c61c38cab8c140b3247bc1cbbfbd111cf3fe390c0f380",
+      "local_sha256": "5ca3284096a120150309dcced903d60d594a36d0f7e440b2286a020f862a7792",
+      "changes": "Subsequent deployed B601 adapter changes; see NATIVE_HOMING.md and source history."
+    }
+  }
+}

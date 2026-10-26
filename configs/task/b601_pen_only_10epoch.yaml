@@ -1,0 +1,12 @@
+# @package _global_
+
+defaults:
+  - b601_pen_only_5epoch
+  - _self_
+
+# Fresh ten-epoch run from the same pretrained Wan2.2 and ActionDiT.
+# Four GPUs x 16 x 2 = 128; cosine schedule spans all 1310 updates.
+num_epochs: 10
+max_steps: null
+resume: null
+output_dir: ${oc.env:FASTWAM_RUN_ROOT,${oc.env:FASTWAM_CACHE_ROOT,${oc.env:HOME}/.cache/fastwam}/runs}/b601_pen_only_10epoch/${now:%Y-%m-%d_%H-%M-%S}

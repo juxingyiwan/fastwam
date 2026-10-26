@@ -1,0 +1,42 @@
+# Copy to ~/.config/fastwam/deploy.yml and set machine-local paths.
+task: Grasp the cube to the bowl
+output_root: ${HOME}/.cache/fastwam/runs
+save_rollout: true
+display_data: true
+model:
+  default: 5epoch
+  checkpoints:
+    5epoch: /path/to/models/5epoch/checkpoint.pt
+    10epoch: /path/to/models/10epoch/checkpoint.pt
+  device: cuda
+  num_inference_steps: 10
+  seed: 42
+robot:
+  can_channel: can0
+  robot_id: follower1
+  camera_mapping_verified: false
+  camera_devices:
+    front: /dev/v4l/by-id/FRONT_CAMERA
+    side: /dev/v4l/by-id/SIDE_CAMERA
+  # Use the machine's existing robot locks shared by all hardware clients.
+  lock_paths:
+    - /path/to/shared/session.lock
+    - /path/to/shared/control.lock
+control:
+  duration_s: 300
+  execution_horizon: 16
+  startup_home: true
+  settle_gripper_deg: 3.0  # Physical motor feedback; arm tolerance remains 2 degrees.
+rtc:
+  enabled: false
+  guidance_mode: lerobot
+  guidance_start: 0.0
+  replan_interval_s: 0.0
+  max_guidance: 10
+  latency_budget_s: 0.20
+  guard_s: 0.0
+  blend_steps: 1
+shutdown:
+  home_timeout_s: 30
+  settle_s: 0.25
+  feedback_recovery_timeout_s: 1

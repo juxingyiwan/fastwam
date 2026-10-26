@@ -1,0 +1,15 @@
+# @package _global_
+
+defaults:
+  - b601_uncond_2cam224
+  - _self_
+
+# Inherit the historical five-epoch optimizer, model and frozen normalization.
+num_epochs: 5
+max_steps: null
+resume: null
+data:
+  train:
+    _target_: fastwam.datasets.lerobot3.task_subset_dataset.TaskSubsetDataset
+  val:
+    _target_: fastwam.datasets.lerobot3.task_subset_dataset.TaskSubsetDataset

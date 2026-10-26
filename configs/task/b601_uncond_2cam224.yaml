@@ -1,0 +1,39 @@
+# @package _global_
+
+defaults:
+  - override /data: b601_2cam_ee_delta_lerobot_v30
+  - override /model: fastwam
+  - _self_
+
+# Eight GPUs give an effective batch of 128 without gradient accumulation.
+batch_size: 16
+num_workers: 2
+
+# Save checkpoints/weights, checkpoints/state and evaluation outputs in cache.
+output_dir: ${oc.env:FASTWAM_RUN_ROOT,${oc.env:FASTWAM_CACHE_ROOT,${oc.env:HOME}/.cache/fastwam}/runs}/b601_ee_delta_v2/${now:%Y-%m-%d_%H-%M-%S}
+
+hydra:
+  run:
+    dir: ${output_dir}
+  job_logging:
+    handlers:
+      file:
+        filename: ${output_dir}/train-rank-${oc.env:RANK,0}.log
+
+model:
+  # The native MoT tensor core rejects expert/mixed-attention checkpointing.
+  mot_checkpoint_mixed_attn: false
+  redirect_common_files: false
+  action_dit_pretrained_path: ${oc.env:FASTWAM_ACTION_BACKBONE,${oc.env:FASTWAM_CACHE_ROOT,${oc.env:HOME}/.cache/fastwam}/checkpoints/ActionDiT_linear_interp_Wan22_alphascale_1024hdim.pt}
+
+lr_scheduler_type: cosine
+learning_rate: 1e-4
+num_epochs: 5
+max_steps: null
+log_every: 10
+save_every: 2000
+eval_every: 200
+
+gradient_accumulation_steps: 1
+weight_decay: 1e-2
+resume: null

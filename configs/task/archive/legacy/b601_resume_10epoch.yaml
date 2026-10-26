@@ -1,0 +1,30 @@
+# @package _global_
+
+defaults:
+  - /task/b601_uncond_2cam224
+  - _self_
+
+# Use experiments/b601/train_resume.py to preserve the original config and logs.
+# Weights and full state are written directly to the original checkpoints path.
+output_dir: ${oc.env:FASTWAM_RESUME_RUN}
+resume: ${output_dir}/checkpoints/state/${oc.env:FASTWAM_RESUME_STEP}
+continuation_dir: ${output_dir}/continuations/${oc.env:FASTWAM_RESUME_STEP}_to_${num_epochs}epochs
+
+hydra:
+  run:
+    dir: ${continuation_dir}
+  job_logging:
+    handlers:
+      file:
+        filename: ${continuation_dir}/train-rank-${oc.env:RANK,0}.log
+
+# Total duration includes the five completed epochs.
+num_epochs: 10
+max_steps: null
+# ceil(82,815 training windows / (8 GPUs * 16)) = 647 optimizer steps per epoch.
+# Recompute if the data split, GPU count or effective batch changes.
+save_every: 647
+
+# Full-state resume retains the saved cosine horizon. Extending num_epochs does
+# not stretch it; after the old endpoint, the native cosine LR rises again.
+# No learning-rate reset is applied by this configuration.

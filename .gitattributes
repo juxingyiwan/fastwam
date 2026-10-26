@@ -1,0 +1,5 @@
+# Preserve audited file bytes across Linux and Windows checkouts.
+* -text
+# These deployed files use CRLF; retain their recorded SHA-256 identities.
+experiments/b601/runtime/connection.py whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
+experiments/b601/fastwam_policy/rtc.py whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
